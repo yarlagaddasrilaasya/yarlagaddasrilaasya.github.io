@@ -43,28 +43,28 @@
         <p style="margin-bottom: 1rem;">Visual identity, social media graphics, video editing, and UI mockups created with Canva, Filmora, and GIMP. Click on any image to view full size.</p>
         
         <div class="projects-grid">
-            <div class="glass-card project-card" data-image="https://placehold.co/1200x900/e3d9ff/6c4fa3?text=EIC+Tech+Fest+Poster">
+            <div class="glass-card project-card" data-image="https://placehold.co/1600x1200/e3d9ff/6c4fa3?text=EIC+Tech+Fest+Poster">
                 <img class="design-image" src="https://placehold.co/600x450/e3d9ff/6c4fa3?text=EIC+Tech+Fest+Poster" alt="EIC Tech Fest Poster">
                 <h3>EIC Tech Fest Poster</h3>
                 <p>Gradient poster design for Entrepreneurship cell event — custom typography and brand alignment.</p>
                 <div class="skill-badge">brand design</div>
             </div>
             
-            <div class="glass-card project-card" data-image="https://placehold.co/1200x900/dbd0ff/5a3f8e?text=Echo+Promo+Reel">
+            <div class="glass-card project-card" data-image="https://placehold.co/1600x1200/dbd0ff/5a3f8e?text=Echo+Promo+Reel">
                 <img class="design-image" src="https://placehold.co/600x450/dbd0ff/5a3f8e?text=Echo+Promo+Reel" alt="Echo Promo Reel">
                 <h3>Echo Promo Reel</h3>
                 <p>Video editing with motion graphics and animated titles for university newspaper club.</p>
                 <div class="skill-badge">video editing</div>
             </div>
             
-            <div class="glass-card project-card" data-image="https://placehold.co/1200x900/f0eaff/6a4d9b?text=Consulting+Deck+UI">
+            <div class="glass-card project-card" data-image="https://placehold.co/1600x1200/f0eaff/6a4d9b?text=Consulting+Deck+UI">
                 <img class="design-image" src="https://placehold.co/600x450/f0eaff/6a4d9b?text=Consulting+Deck+UI" alt="Consulting Deck UI">
                 <h3>Consulting Deck UI</h3>
                 <p>Minimal slide deck design for MUMCG case competition — clean layouts and visual hierarchy.</p>
                 <div class="skill-badge">presentation design</div>
             </div>
             
-            <div class="glass-card project-card" data-image="https://placehold.co/1200x900/e9e0fc/765cb3?text=Personal+Logo+Concept">
+            <div class="glass-card project-card" data-image="https://placehold.co/1600x1200/e9e0fc/765cb3?text=Personal+Logo+Concept">
                 <img class="design-image" src="https://placehold.co/600x450/e9e0fc/765cb3?text=Personal+Logo+Concept" alt="Personal Logo Concept">
                 <h3>Personal Logo Concept</h3>
                 <p>Monogram mark combining technology and creativity — digital and print ready.</p>
@@ -78,96 +78,174 @@
     </div>
 </div>
 
-<!-- Image Modal for Full-Size View -->
-<div id="imageModal" class="image-modal">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div class="modal-controls">
-        <button class="modal-btn prev-btn" id="prevImage"><i class="fas fa-chevron-left"></i></button>
-        <button class="modal-btn next-btn" id="nextImage"><i class="fas fa-chevron-right"></i></button>
+<!-- Full-Screen Image Modal -->
+<div id="imageModal" class="fullscreen-modal">
+    <div class="modal-header">
+        <button class="modal-close" id="closeModal">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-title" id="modalTitle">Design Work</div>
+    </div>
+    
+    <div class="modal-image-container">
+        <button class="modal-nav prev-nav" id="prevImage">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <img class="modal-image" id="modalImage" alt="Full size design">
+        
+        <button class="modal-nav next-nav" id="nextImage">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+    
+    <div class="modal-footer">
+        <div class="image-info" id="imageInfo"></div>
+        <div class="image-counter" id="imageCounter"></div>
     </div>
 </div>
 
 <script>
-    // Image Modal Functionality
-    const images = document.querySelectorAll('.design-image');
+    // Full-Screen Image Modal Functionality
     const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    const closeBtn = document.querySelector('.modal-close');
-    let currentImageIndex = 0;
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const imageInfo = document.getElementById('imageInfo');
+    const imageCounter = document.getElementById('imageCounter');
+    const closeBtn = document.getElementById('closeModal');
+    const prevBtn = document.getElementById('prevImage');
+    const nextBtn = document.getElementById('nextImage');
     
     // Get all project cards with images
-    const imageItems = Array.from(document.querySelectorAll('.project-card'));
+    const projectCards = Array.from(document.querySelectorAll('.project-card'));
+    let currentIndex = 0;
     
-    // Open modal when image is clicked
-    images.forEach((img, index) => {
-        img.addEventListener('click', (e) => {
-            e.stopPropagation();
-            currentImageIndex = index;
-            const fullImageUrl = imageItems[index].getAttribute('data-image') || img.src;
-            modalImg.src = fullImageUrl;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-    });
+    // Store image data for each project
+    const imageData = projectCards.map(card => ({
+        url: card.getAttribute('data-image'),
+        title: card.querySelector('h3')?.innerText || 'Design Work',
+        description: card.querySelector('p')?.innerText || ''
+    }));
+    
+    // Open modal with specific image
+    function openModal(index) {
+        currentIndex = index;
+        updateModalContent();
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // Prevent iframe scrolling in parent
+        if (window.parent && window.parent.document) {
+            window.parent.document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    // Update modal content based on current index
+    function updateModalContent() {
+        const data = imageData[currentIndex];
+        modalImage.src = data.url;
+        modalTitle.innerText = data.title;
+        imageInfo.innerText = data.description;
+        imageCounter.innerText = `${currentIndex + 1} / ${imageData.length}`;
+        
+        // Add loading state
+        modalImage.style.opacity = '0';
+        modalImage.onload = () => {
+            modalImage.style.opacity = '1';
+        };
+    }
     
     // Close modal
     function closeModal() {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
+        if (window.parent && window.parent.document) {
+            window.parent.document.body.style.overflow = 'auto';
+        }
     }
     
-    closeBtn.addEventListener('click', closeModal);
+    // Next image
+    function nextImage() {
+        if (currentIndex < imageData.length - 1) {
+            currentIndex++;
+            updateModalContent();
+        } else {
+            // Optional: loop to first image
+            currentIndex = 0;
+            updateModalContent();
+        }
+    }
     
-    // Click outside modal to close
+    // Previous image
+    function prevImage() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateModalContent();
+        } else {
+            // Optional: loop to last image
+            currentIndex = imageData.length - 1;
+            updateModalContent();
+        }
+    }
+    
+    // Add click event to all design images
+    const designImages = document.querySelectorAll('.design-image');
+    designImages.forEach((img, idx) => {
+        img.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openModal(idx);
+        });
+    });
+    
+    // Also make the whole project card clickable (but not the text areas)
+    projectCards.forEach((card, idx) => {
+        card.addEventListener('click', (e) => {
+            // Don't open if clicking on text or badges
+            if (e.target.tagName === 'H3' || 
+                e.target.tagName === 'P' || 
+                e.target.classList.contains('skill-badge') ||
+                e.target.parentElement?.classList?.contains('skill-badge')) {
+                return;
+            }
+            openModal(idx);
+        });
+    });
+    
+    // Event listeners for modal controls
+    closeBtn.addEventListener('click', closeModal);
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevImage();
+    });
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextImage();
+    });
+    
+    // Close modal when clicking outside the image (on the background)
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeModal();
         }
     });
     
-    // Next image
-    function showNextImage() {
-        currentImageIndex = (currentImageIndex + 1) % imageItems.length;
-        const nextImageUrl = imageItems[currentImageIndex].getAttribute('data-image') || 
-                             imageItems[currentImageIndex].querySelector('.design-image').src;
-        modalImg.src = nextImageUrl;
-    }
-    
-    // Previous image
-    function showPrevImage() {
-        currentImageIndex = (currentImageIndex - 1 + imageItems.length) % imageItems.length;
-        const prevImageUrl = imageItems[currentImageIndex].getAttribute('data-image') || 
-                             imageItems[currentImageIndex].querySelector('.design-image').src;
-        modalImg.src = prevImageUrl;
-    }
-    
-    // Add navigation buttons if they exist
-    const nextBtn = document.getElementById('nextImage');
-    const prevBtn = document.getElementById('prevImage');
-    
-    if (nextBtn) nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showNextImage();
-    });
-    
-    if (prevBtn) prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showPrevImage();
-    });
-    
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (modal.style.display === 'flex') {
             if (e.key === 'ArrowRight') {
-                showNextImage();
+                e.preventDefault();
+                nextImage();
             } else if (e.key === 'ArrowLeft') {
-                showPrevImage();
+                e.preventDefault();
+                prevImage();
             } else if (e.key === 'Escape') {
+                e.preventDefault();
                 closeModal();
             }
         }
     });
+    
+    // Prevent body scroll when modal is open (handled in openModal/closeModal)
 </script>
 </body>
 </html>
