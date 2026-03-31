@@ -3,372 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Srilaasya</title>
+    <title>About</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Ensure transparent background for iframe */
-        body { 
-            background: transparent; 
-            margin: 0;
-            padding: 0;
-        }
-        
-        .inner-container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0.5rem 0 2rem; 
-        }
-        
-        .page-content {
-            padding: 0.2rem 0 1rem;
-        }
-        
-        /* ============================================
-           EXCLUSIVE ABOUT CONTAINER - UNIQUE SHAPE
-           Asymmetrical, with diagonal cut & floating feel
-        ============================================ */
-        .about-exclusive {
-            background: linear-gradient(135deg, rgba(35, 28, 65, 0.8), rgba(25, 20, 50, 0.85));
-            backdrop-filter: blur(14px);
-            border-radius: 3rem 1rem 3rem 1rem;
-            border: 1px solid rgba(200, 170, 255, 0.5);
-            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(180, 150, 255, 0.2) inset;
-            padding: 1.8rem 2rem;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Decorative corner accent for exclusive container */
-        .about-exclusive::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, transparent 50%, rgba(200, 170, 255, 0.15) 50%);
-            border-radius: 0 0 0 100px;
-            pointer-events: none;
-        }
-        
-        .about-exclusive::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 70px;
-            height: 70px;
-            background: radial-gradient(circle, rgba(200, 170, 255, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        
-        .about-exclusive:hover {
-            transform: translateY(-5px);
-            border-radius: 2rem 2rem 3rem 1rem;
-            border-color: rgba(220, 190, 255, 0.7);
-            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5);
-        }
-        
-        .about-exclusive h2 {
-            border-left: none;
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(120deg, #f0e6ff, #d9c8ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.3px;
-        }
-        
-        .about-exclusive p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            text-align: center;
-            max-width: 85%;
-            margin: 0 auto;
-            color: #eae2ff;
-        }
-        
-        .about-exclusive .signature-line {
-            text-align: center;
-            margin-top: 1.2rem;
-            font-size: 0.85rem;
-            color: #b8a4e6;
-            letter-spacing: 1px;
-        }
-        
-        /* Standard glass cards for other sections (Education, Experience, Skills) */
-        .section-card {
-            background: rgba(25, 20, 45, 0.65);
-            backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            border: 1px solid rgba(180, 150, 230, 0.35);
-            padding: 1.3rem 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s;
-            height: 100%;
-        }
-        
-        .section-card:hover {
-            transform: translateY(-3px);
-            background: rgba(35, 28, 60, 0.75);
-            border-color: rgba(200, 170, 255, 0.5);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .section-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            border-left: 3px solid #c6abff;
-            padding-left: 0.75rem;
-            color: #f0e6ff;
-        }
-        
-        /* Two column layout for Education + Experience / Skills */
-        .two-col-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Skills & Languages container - full width below */
-        .skills-full {
-            margin-top: 0.5rem;
-        }
-        
-        .skills-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            justify-content: space-between;
-        }
-        
-        .skill-category {
-            flex: 1;
-            min-width: 180px;
-        }
-        
-        .skill-category h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #d9c8ff;
-            margin-bottom: 0.6rem;
-            letter-spacing: 0.3px;
-        }
-        
-        .skill-tag {
-            background: rgba(170, 130, 230, 0.2);
-            backdrop-filter: blur(4px);
-            padding: 0.25rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #e2d2ff;
-            display: inline-block;
-            margin: 0.2rem 0.3rem;
-        }
-        
-        .lang-item {
-            display: inline-block;
-            background: rgba(200, 170, 255, 0.15);
-            border-radius: 2rem;
-            padding: 0.3rem 1rem;
-            margin: 0.3rem 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .lang-level {
-            font-size: 0.7rem;
-            color: #b8a4e6;
-            margin-left: 0.3rem;
-        }
-        
-        .timeline-item {
-            margin-bottom: 1.2rem;
-        }
-        
-        .timeline-item .role {
-            font-weight: 700;
-            color: #d9c8ff;
-            font-size: 1rem;
-        }
-        
-        .timeline-item .org {
-            color: #cbb2ff;
-            font-weight: 500;
-        }
-        
-        .date {
-            font-size: 0.7rem;
-            color: #b9a6e6;
-            display: inline-block;
-            margin-left: 0.5rem;
-        }
-        
-        .desc {
-            font-size: 0.85rem;
-            color: #cfc5f0;
-            margin-top: 0.3rem;
-            line-height: 1.4;
-        }
-        
-        hr {
-            margin: 0.8rem 0;
-            border-color: #4a3970;
-        }
-        
-        .edu-detail {
-            margin-bottom: 1rem;
-        }
-        
-        .edu-title {
-            font-weight: 700;
-            color: #e0d4ff;
-        }
-        
-        .edu-place {
-            font-size: 0.8rem;
-            color: #c2b0ec;
-        }
-        
-        @media (max-width: 750px) {
-            .two-col-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            .about-exclusive p {
-                max-width: 100%;
-                font-size: 0.95rem;
-            }
-            .about-exclusive {
-                padding: 1.3rem;
-            }
-            .skills-flex {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-        }
+        body { background: transparent; }
+        .inner-container { max-width: 1200px; margin: 0 auto; padding: 0.5rem 0; }
     </style>
 </head>
 <body>
 <div class="inner-container">
     <div class="page-content">
         
-        <!-- EXCLUSIVE ABOUT CONTAINER - unique shape, different from others -->
+        <!-- Exclusive About Container - different shape and style -->
         <div class="about-exclusive">
-            <h2>About</h2>
-            <p>Full-stack developer in progress with a focus on clean interfaces and functional web experiences. 
-            Currently pursuing a BBA in Digital Technologies at Mahindra University, integrating business strategy 
-            with front-end craftsmanship. I believe in creating digital experiences that are both purposeful and 
-            elegant — where every line of code serves a clear intent.</p>
-            <div class="signature-line">— design, build, refine —</div>
+            <h2 style="border-left: none; padding-left: 0; margin-bottom: 0.8rem;">About</h2>
+            <p>Full-stack developer in progress with a focus on clean interfaces and functional web experiences. Currently pursuing a BBA in Digital Technologies at Mahindra University, integrating business strategy with front-end craftsmanship.</p>
+            <p style="margin-top: 1rem;">Passionate about creating digital experiences that are both visually compelling and technically sound. Based in Hyderabad, India.</p>
         </div>
         
-        <!-- Two column layout: Education + Experience -->
-        <div class="two-col-grid">
-            <!-- Education Card -->
-            <div class="section-card">
-                <h3>Education</h3>
-                <div class="edu-detail">
-                    <div class="edu-title">Mahindra University, Hyderabad</div>
-                    <div class="edu-place">Bachelor of Business Administration in Digital Technologies</div>
-                    <div class="date">Aug 2024 – Present</div>
-                    <div class="desc">Current CGPA (As of Sem 3): 7.43/10</div>
+        <!-- Education and Experience side by side -->
+        <div class="grid-2col">
+            <!-- Education Container -->
+            <div class="standard-container">
+                <div class="section-title">Education</div>
+                <div class="education-item">
+                    <div class="institution">Mahindra University, Hyderabad</div>
+                    <div class="degree">BBA in Digital Technologies</div>
+                    <div class="year">Aug 2024 – Present</div>
+                    <div class="gpa">Current CGPA: 7.43/10 (Sem 3)</div>
                 </div>
-                <hr>
-                <div class="edu-detail">
-                    <div class="edu-title">Delhi Public School, Hyderabad</div>
-                    <div class="edu-place">CBSE (Grade 12)</div>
-                    <div class="date">June 2022 – March 2024</div>
-                    <div class="desc">GPA: 8.1 / 10</div>
+                <div class="education-item">
+                    <div class="institution">Delhi Public School, Hyderabad</div>
+                    <div class="degree">CBSE Grade 12</div>
+                    <div class="year">June 2022 – March 2024</div>
+                    <div class="gpa">GPA: 8.1 / 10</div>
                 </div>
-                <hr>
-                <div class="edu-detail">
-                    <div class="edu-title">Rockwell International School, Kokapet</div>
-                    <div class="edu-place">CBSE (Grade 10)</div>
-                    <div class="date">June 2019 – March 2022</div>
-                    <div class="desc">GPA: 8.6 / 10</div>
+                <div class="education-item">
+                    <div class="institution">Rockwell International School, Kokapet</div>
+                    <div class="degree">CBSE Grade 10</div>
+                    <div class="year">June 2019 – March 2022</div>
+                    <div class="gpa">GPA: 8.6 / 10</div>
                 </div>
             </div>
             
-            <!-- Experience Card -->
-            <div class="section-card">
-                <h3>Experience</h3>
-                <div class="timeline-item">
+            <!-- Experience Container -->
+            <div class="standard-container">
+                <div class="section-title">Experience</div>
+                <div class="experience-item">
                     <div class="role">Vice Head of Tech</div>
-                    <div class="org">Entrepreneurship and Innovation Cell (EIC)</div>
-                    <div class="date">Aug 2025 – present</div>
-                    <div class="desc">Overseeing website development and technical execution for events. Mentoring junior members in the Tech team.</div>
+                    <div class="org">Entrepreneurship & Innovation Cell (EIC)</div>
+                    <div class="date">Aug 2025 – Present</div>
+                    <div class="desc">Oversee website development and technical execution for events. Mentoring junior members in the Tech team.</div>
                 </div>
-                <div class="timeline-item">
+                <div class="experience-item">
                     <div class="role">Tech Team Member</div>
-                    <div class="org">Mahindra University Management Consulting Group (MUMCG)</div>
-                    <div class="date">Jan 2025 – present</div>
-                    <div class="desc">Leading website development initiatives and handling event-related technical execution. Collaborated on consulting projects simulating real-world firm experience.</div>
+                    <div class="org">Mahindra University Management Consulting Group</div>
+                    <div class="date">Jan 2025 – Present</div>
+                    <div class="desc">Leading website development initiatives and handling event-related technical execution. Contributed to consulting projects.</div>
                 </div>
-                <div class="timeline-item">
+                <div class="experience-item">
                     <div class="role">Tech Team Member</div>
                     <div class="org">Echo (University Newspaper Club)</div>
                     <div class="date">Aug 2025 – Jan 2026</div>
-                    <div class="desc">Responsible for website management and digital publishing. Contributed to online design and interactive features for the club.</div>
+                    <div class="desc">Responsible for website management and digital publishing. Contributed to online design and interactive features.</div>
                 </div>
-                <div class="timeline-item">
-                    <div class="role">Volunteer Tech Team</div>
-                    <div class="org">Entrepreneurship and Innovation Cell</div>
+                <div class="experience-item">
+                    <div class="role">Volunteer, Tech Team</div>
+                    <div class="org">Entrepreneurship & Innovation Cell</div>
                     <div class="date">Feb 2025 – June 2025</div>
                     <div class="desc">Developed and organized website code for the cell. Assisted in technical operations and supported event execution.</div>
                 </div>
             </div>
         </div>
         
-        <!-- Skills and Languages Container (full width) -->
-        <div class="section-card skills-full">
-            <h3>Skills & Languages</h3>
-            <div class="skills-flex">
-                <div class="skill-category">
-                    <h4>Programming</h4>
-                    <div>
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
+        <!-- Skills and Languages side by side -->
+        <div class="grid-2col">
+            <!-- Skills Container -->
+            <div class="standard-container">
+                <div class="section-title">Skills</div>
+                <div><strong>Programming</strong></div>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
                 </div>
-                <div class="skill-category">
-                    <h4>Design & Editing</h4>
-                    <div>
-                        <span class="skill-tag">Canva</span>
-                        <span class="skill-tag">Wondershare Filmora</span>
-                        <span class="skill-tag">GIMP</span>
-                    </div>
+                <div style="margin-top: 1rem;"><strong>Design & Editing</strong></div>
+                <div class="skills-list">
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Wondershare Filmora</span>
+                    <span class="skill-tag">GIMP</span>
                 </div>
-                <div class="skill-category">
-                    <h4>Other</h4>
-                    <div>
-                        <span class="skill-tag">Website development</span>
-                        <span class="skill-tag">Consulting research</span>
-                        <span class="skill-tag">Creative problem-solving</span>
-                    </div>
+                <div style="margin-top: 1rem;"><strong>Other</strong></div>
+                <div class="skills-list">
+                    <span class="skill-tag">Website Development</span>
+                    <span class="skill-tag">Consulting Research</span>
+                    <span class="skill-tag">Creative Problem-Solving</span>
                 </div>
             </div>
-            <hr>
-            <div>
-                <h4 style="margin-bottom: 0.5rem;">Languages</h4>
-                <div>
-                    <span class="lang-item">English <span class="lang-level">(Native/Bilingual)</span></span>
-                    <span class="lang-item">Telugu <span class="lang-level">(Native/Bilingual)</span></span>
-                    <span class="lang-item">Hindi <span class="lang-level">(Professional proficiency)</span></span>
-                    <span class="lang-item">Chinese <span class="lang-level">(Elementary – HSK 1 in progress)</span></span>
+            
+            <!-- Languages Container -->
+            <div class="standard-container">
+                <div class="section-title">Languages</div>
+                <div class="language-item">
+                    <span class="lang-name">English</span>
+                    <span class="lang-level">Native / Bilingual proficiency</span>
                 </div>
-            </div>
-            <div style="margin-top: 0.8rem; font-size: 0.8rem; color: #c2b0ec;">
-                Currently learning: advanced JavaScript frameworks & Mandarin Chinese
+                <div class="language-item">
+                    <span class="lang-name">Telugu</span>
+                    <span class="lang-level">Native / Bilingual proficiency</span>
+                </div>
+                <div class="language-item">
+                    <span class="lang-name">Hindi</span>
+                    <span class="lang-level">Minimum professional proficiency</span>
+                </div>
+                <div class="language-item">
+                    <span class="lang-name">Chinese</span>
+                    <span class="lang-level">Elementary (HSK 1 in progress)</span>
+                </div>
             </div>
         </div>
         
