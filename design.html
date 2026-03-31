@@ -10,31 +10,62 @@
     <style>
         body { background: transparent; }
         .inner-container { max-width: 1200px; margin: 0 auto; padding: 0.5rem 0; }
+        
+        /* Image Gallery Styles */
+        .design-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        
+        .design-image:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
+        }
+        
+        .project-card {
+            cursor: pointer;
+        }
+        
+        .project-card h3, .project-card p, .skill-badge {
+            cursor: default;
+        }
     </style>
 </head>
 <body>
 <div class="inner-container">
     <div class="page-content">
         <h2>Design Works</h2>
-        <p style="margin-bottom: 1rem;">Visual identity, social media graphics, video editing, and UI mockups created with Canva, Filmora, and GIMP.</p>
+        <p style="margin-bottom: 1rem;">Visual identity, social media graphics, video editing, and UI mockups created with Canva, Filmora, and GIMP. Click on any image to view full size.</p>
         
         <div class="projects-grid">
-            <div class="glass-card project-card">
+            <div class="glass-card project-card" data-image="https://placehold.co/1200x900/e3d9ff/6c4fa3?text=EIC+Tech+Fest+Poster">
+                <img class="design-image" src="https://placehold.co/600x450/e3d9ff/6c4fa3?text=EIC+Tech+Fest+Poster" alt="EIC Tech Fest Poster">
                 <h3>EIC Tech Fest Poster</h3>
                 <p>Gradient poster design for Entrepreneurship cell event — custom typography and brand alignment.</p>
                 <div class="skill-badge">brand design</div>
             </div>
-            <div class="glass-card project-card">
+            
+            <div class="glass-card project-card" data-image="https://placehold.co/1200x900/dbd0ff/5a3f8e?text=Echo+Promo+Reel">
+                <img class="design-image" src="https://placehold.co/600x450/dbd0ff/5a3f8e?text=Echo+Promo+Reel" alt="Echo Promo Reel">
                 <h3>Echo Promo Reel</h3>
                 <p>Video editing with motion graphics and animated titles for university newspaper club.</p>
                 <div class="skill-badge">video editing</div>
             </div>
-            <div class="glass-card project-card">
+            
+            <div class="glass-card project-card" data-image="https://placehold.co/1200x900/f0eaff/6a4d9b?text=Consulting+Deck+UI">
+                <img class="design-image" src="https://placehold.co/600x450/f0eaff/6a4d9b?text=Consulting+Deck+UI" alt="Consulting Deck UI">
                 <h3>Consulting Deck UI</h3>
                 <p>Minimal slide deck design for MUMCG case competition — clean layouts and visual hierarchy.</p>
                 <div class="skill-badge">presentation design</div>
             </div>
-            <div class="glass-card project-card">
+            
+            <div class="glass-card project-card" data-image="https://placehold.co/1200x900/e9e0fc/765cb3?text=Personal+Logo+Concept">
+                <img class="design-image" src="https://placehold.co/600x450/e9e0fc/765cb3?text=Personal+Logo+Concept" alt="Personal Logo Concept">
                 <h3>Personal Logo Concept</h3>
                 <p>Monogram mark combining technology and creativity — digital and print ready.</p>
                 <div class="skill-badge">identity design</div>
@@ -46,5 +77,97 @@
         </div>
     </div>
 </div>
+
+<!-- Image Modal for Full-Size View -->
+<div id="imageModal" class="image-modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div class="modal-controls">
+        <button class="modal-btn prev-btn" id="prevImage"><i class="fas fa-chevron-left"></i></button>
+        <button class="modal-btn next-btn" id="nextImage"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</div>
+
+<script>
+    // Image Modal Functionality
+    const images = document.querySelectorAll('.design-image');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.modal-close');
+    let currentImageIndex = 0;
+    
+    // Get all project cards with images
+    const imageItems = Array.from(document.querySelectorAll('.project-card'));
+    
+    // Open modal when image is clicked
+    images.forEach((img, index) => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = index;
+            const fullImageUrl = imageItems[index].getAttribute('data-image') || img.src;
+            modalImg.src = fullImageUrl;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close modal
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Click outside modal to close
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Next image
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % imageItems.length;
+        const nextImageUrl = imageItems[currentImageIndex].getAttribute('data-image') || 
+                             imageItems[currentImageIndex].querySelector('.design-image').src;
+        modalImg.src = nextImageUrl;
+    }
+    
+    // Previous image
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + imageItems.length) % imageItems.length;
+        const prevImageUrl = imageItems[currentImageIndex].getAttribute('data-image') || 
+                             imageItems[currentImageIndex].querySelector('.design-image').src;
+        modalImg.src = prevImageUrl;
+    }
+    
+    // Add navigation buttons if they exist
+    const nextBtn = document.getElementById('nextImage');
+    const prevBtn = document.getElementById('prevImage');
+    
+    if (nextBtn) nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNextImage();
+    });
+    
+    if (prevBtn) prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPrevImage();
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (modal.style.display === 'flex') {
+            if (e.key === 'ArrowRight') {
+                showNextImage();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevImage();
+            } else if (e.key === 'Escape') {
+                closeModal();
+            }
+        }
+    });
+</script>
 </body>
 </html>
