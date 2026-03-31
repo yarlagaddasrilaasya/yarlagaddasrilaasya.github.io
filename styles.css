@@ -227,20 +227,6 @@ h3 {
     margin: 0.2rem;
 }
 
-.timeline-item {
-    margin-bottom: 1.3rem;
-}
-
-.role {
-    font-weight: 700;
-    color: #d9c8ff;
-}
-
-.date {
-    font-size: 0.7rem;
-    color: #b9a6e6;
-}
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -325,6 +311,143 @@ footer {
     color: #b8a6e0;
 }
 
+/* ========== NEW STYLES FOR ABOUT PAGE (added) ========== */
+
+/* Exclusive About Container - different shape and style */
+.about-exclusive {
+    background: linear-gradient(135deg, rgba(45, 35, 75, 0.8), rgba(30, 22, 55, 0.85));
+    backdrop-filter: blur(16px);
+    border-radius: 3rem 1rem 3rem 1rem;
+    border: 1px solid rgba(200, 170, 255, 0.5);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(180, 150, 255, 0.2) inset;
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.about-exclusive:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(55, 42, 90, 0.85), rgba(38, 28, 68, 0.9));
+}
+
+.about-exclusive p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Standard containers for Education, Experience, Skills */
+.standard-container {
+    background: rgba(25, 20, 45, 0.65);
+    backdrop-filter: blur(12px);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(180, 150, 230, 0.35);
+    padding: 1.3rem;
+    transition: transform 0.25s ease, box-shadow 0.3s;
+    height: 100%;
+}
+
+.standard-container:hover {
+    transform: translateY(-3px);
+    background: rgba(35, 28, 60, 0.75);
+    border-color: rgba(200, 170, 255, 0.5);
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(198, 171, 255, 0.5);
+    color: #e3d6ff;
+}
+
+.education-item, .experience-item {
+    margin-bottom: 1.2rem;
+}
+
+.institution {
+    font-weight: 700;
+    color: #d9c8ff;
+    font-size: 1rem;
+}
+
+.degree {
+    font-size: 0.9rem;
+    color: #c5b3f0;
+    margin: 0.2rem 0;
+}
+
+.year {
+    font-size: 0.7rem;
+    color: #b9a6e6;
+}
+
+.gpa {
+    font-size: 0.8rem;
+    color: #cbb2ff;
+    margin-top: 0.2rem;
+}
+
+.role {
+    font-weight: 700;
+    color: #d9c8ff;
+}
+
+.org {
+    font-size: 0.9rem;
+    color: #c5b3f0;
+}
+
+.date {
+    font-size: 0.7rem;
+    color: #b9a6e6;
+}
+
+.desc {
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    line-height: 1.4;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+}
+
+.skill-tag {
+    background: rgba(170, 130, 230, 0.25);
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    color: #e2d2ff;
+}
+
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.lang-name {
+    font-weight: 500;
+    color: #d9c8ff;
+}
+
+.lang-level {
+    color: #b9a6e6;
+    font-size: 0.8rem;
+}
+
 /* Responsive */
 @media (max-width: 700px) {
     .container { padding: 1rem 1.2rem 2rem; }
@@ -337,4 +460,5 @@ footer {
 
 @media (max-width: 750px) {
     .responsive-grid { grid-template-columns: 1fr !important; }
+    .grid-2col { grid-template-columns: 1fr; }
 }
