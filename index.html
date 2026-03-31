@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Srilaasya Yarlagadda · Dream Portfolio</title>
+    <title>Srilaasya Yarlagadda · Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -16,15 +16,15 @@
         <header class="glass-card">
             <div class="header-flex">
                 <div>
-                    <span class="hero-greeting"><i class="fas fa-code"></i> digital architect · dream · build</span>
+                    <span class="hero-greeting">digital architect · design · development</span>
                     <h1>Srilaasya Yarlagadda</h1>
-                    <p>BBA Digital Technologies | front-end dev & design enthusiast</p>
+                    <p>BBA Digital Technologies | front-end development & design</p>
                 </div>
                 <div class="nav-links">
-                    <a href="about.html" class="nav-item active">🌙 About</a>
-                    <a href="design.html" class="nav-item">🎨 Design</a>
-                    <a href="websites.html" class="nav-item">🌐 Websites</a>
-                    <a href="contact.html" class="nav-item">📬 Contact</a>
+                    <a href="about.html" class="nav-item active">About</a>
+                    <a href="design.html" class="nav-item">Design</a>
+                    <a href="websites.html" class="nav-item">Websites</a>
+                    <a href="contact.html" class="nav-item">Contact</a>
                 </div>
             </div>
         </header>
@@ -34,13 +34,12 @@
         </main>
 
         <footer>
-            <p>© 2025 Srilaasya Yarlagadda — Dream Tech Portfolio — with stars, moon & sparkles ✨🌙</p>
+            <p>© 2025 Srilaasya Yarlagadda — digital portfolio</p>
         </footer>
     </div>
 
     <script src="script.js"></script>
     <script>
-        // Update active nav link based on current iframe src
         const navLinks = document.querySelectorAll('.nav-item');
         const iframe = document.getElementById('page-frame');
         
@@ -57,7 +56,6 @@
         iframe.addEventListener('load', updateActiveLink);
         updateActiveLink();
         
-        // Handle navigation without full page reload
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
