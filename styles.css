@@ -380,7 +380,6 @@ footer {
     font-weight: 700;
     color: #d9c8ff;
     font-size: 1rem;
-    margin-bottom: 0.2rem;
 }
 
 .degree {
@@ -392,6 +391,12 @@ footer {
 .year {
     font-size: 0.75rem;
     color: #b9a6e6;
+}
+
+.gpa {
+    font-size: 0.8rem;
+    color: #cbb2ff;
+    margin-top: 0.2rem;
 }
 
 /* Experience Styles */
@@ -414,7 +419,6 @@ footer {
 .date {
     font-size: 0.7rem;
     color: #b9a6e6;
-    margin-bottom: 0.3rem;
 }
 
 .desc {
@@ -478,142 +482,6 @@ footer {
     text-align: right;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-    .container { padding: 1rem 1.2rem 2rem; }
-    h1 { font-size: 1.8rem; }
-    .nav-links { gap: 1rem; }
-    .moon { width: 45px; height: 45px; top: 2%; right: 2%;}
-    .header-flex { flex-direction: column; text-align: center; }
-    h2 { font-size: 1.5rem; }
-}
-
-@media (max-width: 750px) {
-    .grid-2col { 
-        grid-template-columns: 1fr; 
-        gap: 1.2rem;
-    }
-    .about-exclusive {
-        padding: 1.2rem;
-    }
-    .standard-container {
-        padding: 1.2rem;
-    }
-    .language-item {
-        flex-direction: column;
-        gap: 0.2rem;
-    }
-    .lang-level {
-        text-align: left;
-    }
-}
-/* ========== IMAGE MODAL STYLES ========== */
-
-.image-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    z-index: 3000;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.modal-content {
-    max-width: 90%;
-    max-height: 85vh;
-    object-fit: contain;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-    animation: modalFadeIn 0.3s ease;
-}
-
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    z-index: 3001;
-}
-
-.modal-close:hover {
-    color: #c6abff;
-    transform: scale(1.1);
-}
-
-.modal-controls {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1.5rem;
-    z-index: 3001;
-}
-
-.modal-btn {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    font-size: 1.2rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-btn:hover {
-    background: rgba(198, 171, 255, 0.6);
-    transform: scale(1.1);
-    border-color: #c6abff;
-}
-
-/* Responsive modal */
-@media (max-width: 700px) {
-    .modal-content {
-        max-width: 95%;
-        max-height: 80vh;
-    }
-    
-    .modal-close {
-        top: 15px;
-        right: 20px;
-        font-size: 30px;
-    }
-    
-    .modal-btn {
-        padding: 0.6rem 1rem;
-        font-size: 1rem;
-    }
-    
-    .modal-controls {
-        bottom: 20px;
-        gap: 1rem;
-    }
-}
 /* ========== FULL-SCREEN IMAGE MODAL STYLES ========== */
 
 .fullscreen-modal {
@@ -768,6 +636,35 @@ footer {
 }
 
 /* Responsive design */
+@media (max-width: 700px) {
+    .container { padding: 1rem 1.2rem 2rem; }
+    h1 { font-size: 1.8rem; }
+    .nav-links { gap: 1rem; }
+    .moon { width: 45px; height: 45px; top: 2%; right: 2%;}
+    .header-flex { flex-direction: column; text-align: center; }
+    h2 { font-size: 1.5rem; }
+}
+
+@media (max-width: 750px) {
+    .grid-2col { 
+        grid-template-columns: 1fr; 
+        gap: 1.2rem;
+    }
+    .about-exclusive {
+        padding: 1.2rem;
+    }
+    .standard-container {
+        padding: 1.2rem;
+    }
+    .language-item {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    .lang-level {
+        text-align: left;
+    }
+}
+
 @media (max-width: 768px) {
     .modal-header {
         padding: 1rem 1.2rem;
