@@ -45,3 +45,12 @@ document.addEventListener('click', (e) => {
         }, i * 40);
     }
 });
+
+// Global function to close modal if needed (used by design page)
+window.closeImageModal = function() {
+    const modal = document.getElementById('imageModal');
+    if (modal && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+};
