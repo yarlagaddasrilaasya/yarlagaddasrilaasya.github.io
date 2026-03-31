@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Srilaasya Yarlagadda · Dream Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="stars-container" id="starsContainer"></div>
+    <div class="moon"></div>
+
+    <div class="container">
+        <header class="glass-card">
+            <div class="header-flex">
+                <div>
+                    <span class="hero-greeting"><i class="fas fa-code"></i> digital architect · dream · build</span>
+                    <h1>Srilaasya Yarlagadda</h1>
+                    <p>BBA Digital Technologies | front-end dev & design enthusiast</p>
+                </div>
+                <div class="nav-links">
+                    <a href="about.html" class="nav-item active">🌙 About</a>
+                    <a href="design.html" class="nav-item">🎨 Design</a>
+                    <a href="websites.html" class="nav-item">🌐 Websites</a>
+                    <a href="contact.html" class="nav-item">📬 Contact</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="iframe-container">
+            <iframe src="about.html" id="page-frame" name="page-frame" title="Portfolio Content"></iframe>
+        </main>
+
+        <footer>
+            <p>© 2025 Srilaasya Yarlagadda — Dream Tech Portfolio — with stars, moon & sparkles ✨🌙</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Update active nav link based on current iframe src
+        const navLinks = document.querySelectorAll('.nav-item');
+        const iframe = document.getElementById('page-frame');
+        
+        function updateActiveLink() {
+            const currentSrc = iframe.src;
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (currentSrc.includes(link.getAttribute('href'))) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        iframe.addEventListener('load', updateActiveLink);
+        updateActiveLink();
+        
+        // Handle navigation without full page reload
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                iframe.src = href;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
