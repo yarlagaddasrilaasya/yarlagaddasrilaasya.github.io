@@ -7,153 +7,212 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body { background: transparent; }
-        .inner-container { max-width: 1200px; margin: 0 auto; padding: 0.5rem 0; }
-    </style>
 </head>
 <body>
 <div class="inner-container">
     <div class="page-content">
         
-        <!-- About Section -->
-        <div class="about-exclusive">
-            <h2 style="border-left: none; padding-left: 0; margin-bottom: 1rem;">About</h2>
+        <!-- About Section (Exclusive - no flip) -->
+        <div class="about-exclusive bounce-animation">
+            <h2 class="about-title">About</h2>
             <p>Hey! I'm Srilaasya Yarlagadda, currently pursuing a BBA in Digital Technologies at Mahindra University. I have a strong interest in building and creating in the digital space, with a focus on front-end development. I have worked on building websites that prioritize both functionality and clean, aesthetic design. I am especially interested in digital marketing and creating engaging, user-focused content and platforms. Understanding how people interact with digital products, and how thoughtful design and strategy can shape those experiences is something that genuinely excites me.</p>
-            <p style="margin-top: 1rem;">I would describe myself as curious, creative, and always looking to improve, whether that's learning new tools, refining my skills, or taking on new challenges. Outside of work, I enjoy music and dance, getting lost in a good book, and experimenting with cooking.</p>
-            <p style="margin-top: 1rem;">I'm currently looking for opportunities to gain hands-on experience, collaborate on meaningful projects, and grow in spaces where I can combine creativity with practical skills. If this resonates, I'd love to connect!</p>
+            <p class="about-margin">I would describe myself as curious, creative, and always looking to improve, whether that's learning new tools, refining my skills, or taking on new challenges. Outside of work, I enjoy music and dance, getting lost in a good book, and experimenting with cooking.</p>
+            <p class="about-margin">I'm currently looking for opportunities to gain hands-on experience, collaborate on meaningful projects, and grow in spaces where I can combine creativity with practical skills. If this resonates, I'd love to connect!</p>
         </div>
         
-        <!-- Education and Experience side by side -->
+        <!-- Education and Experience side by side (with flip cards) -->
         <div class="grid-2col">
-            <!-- Education Container -->
-            <div class="standard-container">
-                <div class="section-title">Education</div>
-                
-                <div class="education-item">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                        <div class="institution">Mahindra University, Hyderabad</div>
-                        <div class="year">Aug 2024 – Present</div>
+            <!-- Education Container - Flip Card -->
+            <div class="flip-card" id="educationCard">
+                <div class="flip-card-inner">
+                    <div class="flip-front">
+                        <div class="section-title">Education <i class="fas fa-graduation-cap"></i></div>
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div class="institution">Mahindra University, Hyderabad</div>
+                                <div class="year">Aug 2024 – Present</div>
+                            </div>
+                            <div class="degree">BBA in Digital Technologies</div>
+                            <div class="gpa">Current CGPA: 7.43/10 (Sem 3)</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div class="institution">Delhi Public School, Hyderabad</div>
+                                <div class="year">June 2022 – March 2024</div>
+                            </div>
+                            <div class="degree">CBSE Grade 12</div>
+                            <div class="gpa">GPA: 8.1 / 10</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div class="institution">Rockwell International School, Kokapet</div>
+                                <div class="year">June 2019 – March 2022</div>
+                            </div>
+                            <div class="degree">CBSE Grade 10</div>
+                            <div class="gpa">GPA: 8.6 / 10</div>
+                        </div>
+                        <div class="click-hint"><i class="fas fa-hand-pointer"></i> Click to flip</div>
                     </div>
-                    <div class="degree">BBA in Digital Technologies</div>
-                    <div class="gpa">Current CGPA: 7.43/10 (Sem 3)</div>
-                </div>
-                
-                <div class="education-item">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                        <div class="institution">Delhi Public School, Hyderabad</div>
-                        <div class="year">June 2022 – March 2024</div>
-                    </div>
-                    <div class="degree">CBSE Grade 12</div>
-                    <div class="gpa">GPA: 8.1 / 10</div>
-                </div>
-                
-                <div class="education-item">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                        <div class="institution">Rockwell International School, Kokapet</div>
-                        <div class="year">June 2019 – March 2022</div>
-                    </div>
-                    <div class="degree">CBSE Grade 10</div>
-                    <div class="gpa">GPA: 8.6 / 10</div>
-                </div>
-            </div>
-            
-            <!-- Experience Container -->
-            <div class="standard-container">
-                <div class="section-title">Experience</div>
-                
-                <div class="experience-item">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                        <div class="role">Vice Head of Tech</div>
-                        <div class="date">Aug 2025 – Present</div>
-                    </div>
-                    <div class="org">Entrepreneurship & Innovation Cell (EIC)</div>
-                    <div class="desc">Oversee website development and technical execution for events. Mentoring junior members in the Tech team.</div>
-                </div>
-                
-                <div class="experience-item">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                        <div class="role">Tech Team Member</div>
-                        <div class="date">Jan 2025 – Present</div>
-                    </div>
-                    <div class="org">Mahindra University Management Consulting Group</div>
-                    <div class="desc">Leading website development initiatives and handling event-related technical execution. Contributed to consulting projects.</div>
-                </div>
-                
-                <div class="experience-item">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                        <div class="role">Tech Team Member</div>
-                        <div class="date">Aug 2025 – Jan 2026</div>
-                    </div>
-                    <div class="org">Echo (University Newspaper Club)</div>
-                    <div class="desc">Responsible for website management and digital publishing. Contributed to online design and interactive features.</div>
-                </div>
-                
-                <div class="experience-item">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                        <div class="role">Volunteer, Tech Team</div>
-                        <div class="date">Feb 2025 – June 2025</div>
-                    </div>
-                    <div class="org">Entrepreneurship & Innovation Cell</div>
-                    <div class="desc">Developed and organized website code for the cell. Assisted in technical operations and supported event execution.</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Skills and Languages side by side -->
-        <div class="grid-2col">
-            <!-- Skills Container -->
-            <div class="standard-container">
-                <div class="section-title">Skills</div>
-                <div class="skills-category">
-                    <div class="category-title">Programming</div>
-                    <div class="skills-list">
-                        <span class="skill-tag">HTML</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <div class="category-title">Design & Editing</div>
-                    <div class="skills-list">
-                        <span class="skill-tag">Canva</span>
-                        <span class="skill-tag">Wondershare Filmora</span>
-                        <span class="skill-tag">GIMP</span>
-                    </div>
-                </div>
-                <div class="skills-category">
-                    <div class="category-title">Other</div>
-                    <div class="skills-list">
-                        <span class="skill-tag">Website Development</span>
-                        <span class="skill-tag">Consulting Research</span>
-                        <span class="skill-tag">Creative Problem-Solving</span>
+                    <div class="flip-back">
+                        <i class="fas fa-star"></i>
+                        <p><strong>Fun Fact!</strong></p>
+                        <p>I'm currently learning Mandarin Chinese and aiming for HSK 1 certification!</p>
+                        <div class="fun-fact"><i class="fas fa-music"></i> I also love dance and experimenting with new recipes</div>
                     </div>
                 </div>
             </div>
             
-            <!-- Languages Container -->
-            <div class="standard-container">
-                <div class="section-title">Languages</div>
-                <div class="language-item">
-                    <span class="lang-name">English</span>
-                    <span class="lang-level">Native / Bilingual proficiency</span>
+            <!-- Experience Container - Flip Card -->
+            <div class="flip-card" id="experienceCard">
+                <div class="flip-card-inner">
+                    <div class="flip-front">
+                        <div class="section-title">Experience <i class="fas fa-briefcase"></i></div>
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="role">Vice Head of Tech</div>
+                                <div class="date">Aug 2025 – Present</div>
+                            </div>
+                            <div class="org">Entrepreneurship & Innovation Cell (EIC)</div>
+                            <div class="desc">Oversee website development and technical execution for events. Mentoring junior members in the Tech team.</div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="role">Tech Team Member</div>
+                                <div class="date">Jan 2025 – Present</div>
+                            </div>
+                            <div class="org">Mahindra University Management Consulting Group</div>
+                            <div class="desc">Leading website development initiatives and handling event-related technical execution. Contributed to consulting projects.</div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="role">Tech Team Member</div>
+                                <div class="date">Aug 2025 – Jan 2026</div>
+                            </div>
+                            <div class="org">Echo (University Newspaper Club)</div>
+                            <div class="desc">Responsible for website management and digital publishing. Contributed to online design and interactive features.</div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="role">Volunteer, Tech Team</div>
+                                <div class="date">Feb 2025 – June 2025</div>
+                            </div>
+                            <div class="org">Entrepreneurship & Innovation Cell</div>
+                            <div class="desc">Developed and organized website code for the cell. Assisted in technical operations and supported event execution.</div>
+                        </div>
+                        <div class="click-hint"><i class="fas fa-hand-pointer"></i> Click to flip</div>
+                    </div>
+                    <div class="flip-back">
+                        <i class="fas fa-rocket"></i>
+                        <p><strong>Did You Know?</strong></p>
+                        <p>I've helped build and manage websites for 3 different university organizations!</p>
+                        <div class="fun-fact"><i class="fas fa-code"></i> HTML, CSS, JavaScript are my go-to tools</div>
+                    </div>
                 </div>
-                <div class="language-item">
-                    <span class="lang-name">Telugu</span>
-                    <span class="lang-level">Native / Bilingual proficiency</span>
+            </div>
+        </div>
+        
+        <!-- Skills and Languages side by side (with flip cards) -->
+        <div class="grid-2col">
+            <!-- Skills Container - Flip Card -->
+            <div class="flip-card" id="skillsCard">
+                <div class="flip-card-inner">
+                    <div class="flip-front">
+                        <div class="section-title">Skills <i class="fas fa-code"></i></div>
+                        <div class="skills-category">
+                            <div class="category-title">Programming</div>
+                            <div class="skills-list">
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <div class="category-title">Design & Editing</div>
+                            <div class="skills-list">
+                                <span class="skill-tag">Canva</span>
+                                <span class="skill-tag">Wondershare Filmora</span>
+                                <span class="skill-tag">GIMP</span>
+                            </div>
+                        </div>
+                        <div class="skills-category">
+                            <div class="category-title">Other</div>
+                            <div class="skills-list">
+                                <span class="skill-tag">Website Development</span>
+                                <span class="skill-tag">Consulting Research</span>
+                                <span class="skill-tag">Creative Problem-Solving</span>
+                            </div>
+                        </div>
+                        <div class="click-hint"><i class="fas fa-hand-pointer"></i> Click to flip</div>
+                    </div>
+                    <div class="flip-back">
+                        <i class="fas fa-chart-line"></i>
+                        <p><strong>Currently Learning:</strong></p>
+                        <p>Advanced JavaScript frameworks and Mandarin Chinese (HSK 1)</p>
+                        <div class="fun-fact"><i class="fas fa-lightbulb"></i> Always exploring new creative tools!</div>
+                    </div>
                 </div>
-                <div class="language-item">
-                    <span class="lang-name">Hindi</span>
-                    <span class="lang-level">Minimum professional proficiency</span>
-                </div>
-                <div class="language-item">
-                    <span class="lang-name">Chinese</span>
-                    <span class="lang-level">Elementary (HSK 1 in progress)</span>
+            </div>
+            
+            <!-- Languages Container - Flip Card -->
+            <div class="flip-card" id="languagesCard">
+                <div class="flip-card-inner">
+                    <div class="flip-front">
+                        <div class="section-title">Languages <i class="fas fa-language"></i></div>
+                        <div class="language-item">
+                            <span class="lang-name">English</span>
+                            <span class="lang-level">Native / Bilingual proficiency</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="lang-name">Telugu</span>
+                            <span class="lang-level">Native / Bilingual proficiency</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="lang-name">Hindi</span>
+                            <span class="lang-level">Minimum professional proficiency</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="lang-name">Chinese</span>
+                            <span class="lang-level">Elementary (HSK 1 in progress)</span>
+                        </div>
+                        <div class="click-hint"><i class="fas fa-hand-pointer"></i> Click to flip</div>
+                    </div>
+                    <div class="flip-back">
+                        <i class="fas fa-globe-asia"></i>
+                        <p><strong>Language Goals!</strong></p>
+                        <p>Working towards HSK 1 certification in Mandarin Chinese</p>
+                        <div class="fun-fact"><i class="fas fa-heart"></i> I love learning new languages and cultures!</div>
+                    </div>
                 </div>
             </div>
         </div>
         
     </div>
 </div>
+
+<script>
+    // Add flip functionality to all flip cards
+    const flipCards = document.querySelectorAll('.flip-card');
+    
+    flipCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Prevent flipping if clicking on skill tags
+            if (e.target.closest('.skill-tag')) {
+                return;
+            }
+            card.classList.toggle('flipped');
+        });
+    });
+    
+    // Add staggered animation delay
+    const animatedElements = document.querySelectorAll('.bounce-animation, .flip-card');
+    animatedElements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.1}s`;
+    });
+</script>
 </body>
 </html>
