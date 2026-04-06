@@ -13,7 +13,7 @@
         
         .websites-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
             gap: 1.8rem;
             margin-top: 1rem;
         }
@@ -29,8 +29,8 @@
         }
         
         .website-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
         
         .skill-badge {
@@ -45,45 +45,37 @@
         }
         
         .website-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin: 0.5rem 0;
             color: #e3d6ff;
         }
         
         .website-description {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #b9a6e6;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             line-height: 1.5;
         }
         
-        .gdrive-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background: rgba(198, 171, 255, 0.2);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(198, 171, 255, 0.4);
-            padding: 0.7rem 1.3rem;
-            border-radius: 2rem;
-            text-decoration: none;
-            color: #e5d9ff;
-            font-weight: 500;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
+        /* Video Container Styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #1a142b;
+            margin: 1rem 0;
         }
         
-        .gdrive-btn:hover {
-            background: rgba(198, 171, 255, 0.4);
-            transform: scale(1.02);
-            border-color: rgba(198, 171, 255, 0.7);
-        }
-        
-        .gdrive-btn i {
-            font-size: 1rem;
-            color: #cbb2ff;
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         .highlight-box {
@@ -94,26 +86,37 @@
             text-align: center;
             border: 1px solid #b89eff;
         }
+        
+        .note-text {
+            font-size: 0.8rem;
+            color: #cbb2ff;
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
 <body>
 <div class="inner-container">
     <div class="page-content">
         <h2>Website Demos</h2>
-        <p style="margin-bottom: 1.2rem;">Click the buttons below to view complete website projects stored in my Google Drive.</p>
+        <p style="margin-bottom: 1.2rem;">Video walkthroughs of custom-built, responsive websites. Videos play directly in your browser.</p>
         
         <div class="websites-grid">
             
             <!-- Website 1 - EDapt -->
             <div class="glass-card website-card">
-                <div class="website-icon">🎨</div>
+                <div class="website-icon">📚</div>
                 <div class="skill-badge">EdTech platform</div>
                 <h3 class="website-title">EDapt</h3>
                 <p class="website-description">Adaptive learning platform with product showcase and about section. Built for an educational technology startup as part of coursework.</p>
-                <a href="#" class="gdrive-btn" id="driveLink1">
-                    <i class="fab fa-google-drive"></i>
-                    View on Google Drive
-                </a>
+                
+                <!-- Embedded Video - Preview Link -->
+                <div class="video-container">
+                    <iframe 
+                        src="https://drive.google.com/file/d/11qYHF5GONGb00Co5kBB6bknrPj_2nfSC/preview" 
+                        allow="autoplay"
+                        frameborder="0">
+                    </iframe>
+                </div>
             </div>
             
             <!-- Website 2 - Leher -->
@@ -122,22 +125,32 @@
                 <div class="skill-badge">Wellness app</div>
                 <h3 class="website-title">Leher</h3>
                 <p class="website-description">Wellness application featuring Declutter Zone and Mood Tracking. Interactive zones designed to support mental wellbeing and self-care.</p>
-                <a href="#" class="gdrive-btn" id="driveLink2">
-                    <i class="fab fa-google-drive"></i>
-                    View on Google Drive
-                </a>
+                
+                <!-- Embedded Video - Preview Link -->
+                <div class="video-container">
+                    <iframe 
+                        src="https://drive.google.com/file/d/1VjmOhE71cY9atB5UoTPsnp0EEEbCVh6y/preview" 
+                        allow="autoplay"
+                        frameborder="0">
+                    </iframe>
+                </div>
             </div>
             
             <!-- Website 3 - Lemmeno -->
             <div class="glass-card website-card">
                 <div class="website-icon">🍋</div>
-                <div class="skill-badge">EdTech platform</div>
+                <div class="skill-badge">Strategic platform</div>
                 <h3 class="website-title">Lemmeno</h3>
                 <p class="website-description">Strategic insight platform delivering professional analysis and solutions to complex business challenges. Bridges academic excellence with practical industry expertise.</p>
-                <a href="#" class="gdrive-btn" id="driveLink3">
-                    <i class="fab fa-google-drive"></i>
-                    View on Google Drive
-                </a>
+                
+                <!-- Embedded Video - Preview Link -->
+                <div class="video-container">
+                    <iframe 
+                        src="https://drive.google.com/file/d/1J0kG_3AQ7pLFZr0rEinVgoXerfzsuyKj/preview" 
+                        allow="autoplay"
+                        frameborder="0">
+                    </iframe>
+                </div>
             </div>
             
             <!-- Website 4 - MUMCG -->
@@ -146,47 +159,26 @@
                 <div class="skill-badge">Consulting website</div>
                 <h3 class="website-title">Mahindra University Management Consulting Group</h3>
                 <p class="website-description">Mahindra University Management Consulting Group official website. Showcases strategic insights, measurable results, and professional consulting services.</p>
-                <a href="#" class="gdrive-btn" id="driveLink4">
-                    <i class="fab fa-google-drive"></i>
-                    View on Google Drive
-                </a>
+                
+                <!-- Embedded Video - Preview Link -->
+                <div class="video-container">
+                    <iframe 
+                        src="https://drive.google.com/file/d/1ZLX1y37tCYsF4IGwMVk-2Zh8McTKDMlU/preview" 
+                        allow="autoplay"
+                        frameborder="0">
+                    </iframe>
+                </div>
             </div>
             
         </div>
         
         <div class="highlight-box">
-            <i class="fas fa-folder-open"></i> Each website is a fully functional, responsive project built with modern front-end practices. Click the button on any card to view the complete demo.
+            <i class="fas fa-video"></i> Each video demonstrates a fully functional, responsive website built with modern front-end practices.
+        </div>
+        <div class="note-text">
+            <i class="fas fa-info-circle"></i> If videos don't load, make sure your Google Drive sharing is set to "Anyone with the link can view"
         </div>
     </div>
 </div>
-
-<script>
-    // ========== GOOGLE DRIVE LINKS ==========
-    // IMPORTANT: Replace these placeholder links with your actual Google Drive shareable links
-    
-    const driveLinks = {
-        link1: "https://drive.google.com/file/d/11qYHF5GONGb00Co5kBB6bknrPj_2nfSC/view?usp=sharing",
-        link2: "https://drive.google.com/file/d/1VjmOhE71cY9atB5UoTPsnp0EEEbCVh6y/view?usp=sharing",
-        link3: "https://drive.google.com/file/d/1J0kG_3AQ7pLFZr0rEinVgoXerfzsuyKj/view?usp=sharing",
-        link4: "https://drive.google.com/file/d/1ZLX1y37tCYsF4IGwMVk-2Zh8McTKDMlU/view?usp=sharing"
-    };
-    
-    // Apply links to buttons
-    document.getElementById('driveLink1').href = driveLinks.link1;
-    document.getElementById('driveLink2').href = driveLinks.link2;
-    document.getElementById('driveLink3').href = driveLinks.link3;
-    document.getElementById('driveLink4').href = driveLinks.link4;
-    
-    // Optional: Open links in new tab with confirmation (remove if not needed)
-    const allButtons = document.querySelectorAll('.gdrive-btn');
-    allButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            if (btn.href === "#" || btn.href.includes("YOUR_FILE_ID")) {
-                e.preventDefault();
-                alert("Please update the Google Drive links in the script section with your actual file links.");
-            }
-        });
-    });
-</script>
 </body>
 </html>
