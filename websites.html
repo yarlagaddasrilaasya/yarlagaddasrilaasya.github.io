@@ -10,64 +10,183 @@
     <style>
         body { background: transparent; }
         .inner-container { max-width: 1200px; margin: 0 auto; padding: 0.5rem 0; }
+        
+        .websites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+        
+        .website-card {
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .website-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .website-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-badge {
+            background: rgba(170, 130, 230, 0.25);
+            display: inline-block;
+            padding: 0.25rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #e2d2ff;
+            margin-bottom: 0.8rem;
+        }
+        
+        .website-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            color: #e3d6ff;
+        }
+        
+        .website-description {
+            font-size: 0.9rem;
+            color: #b9a6e6;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
+        }
+        
+        .gdrive-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(198, 171, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(198, 171, 255, 0.4);
+            padding: 0.7rem 1.3rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            color: #e5d9ff;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gdrive-btn:hover {
+            background: rgba(198, 171, 255, 0.4);
+            transform: scale(1.02);
+            border-color: rgba(198, 171, 255, 0.7);
+        }
+        
+        .gdrive-btn i {
+            font-size: 1rem;
+            color: #cbb2ff;
+        }
+        
+        .highlight-box {
+            margin-top: 2rem;
+            background: rgba(155, 115, 210, 0.15);
+            border-radius: 1.2rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #b89eff;
+        }
     </style>
 </head>
 <body>
 <div class="inner-container">
     <div class="page-content">
         <h2>Website Demos</h2>
-        <p style="margin-bottom: 1.2rem;">Video walkthroughs of custom-built, responsive websites.</p>
+        <p style="margin-bottom: 1.2rem;">Click the buttons below to view complete website projects stored in my Google Drive.</p>
         
-        <div class="projects-grid">
-            <div class="glass-card project-card">
-                <div class="video-wrapper">
-                    <video controls preload="metadata" poster="https://placehold.co/600x400/cec0f0/4a2e78?text=Art+Gallery">
-                        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-                    </video>
-                </div>
+        <div class="websites-grid">
+            
+            <!-- Website 1 - Lumière Art Space -->
+            <div class="glass-card website-card">
+                <div class="website-icon">🎨</div>
                 <div class="skill-badge">interactive gallery</div>
-                <h3>Lumière Art Space</h3>
-                <p>Fullscreen video background, smooth transitions, artist showcase.</p>
+                <h3 class="website-title">Lumière Art Space</h3>
+                <p class="website-description">Fullscreen video background, smooth transitions, artist showcase.</p>
+                <a href="#" class="gdrive-btn" id="driveLink1">
+                    <i class="fab fa-google-drive"></i>
+                    View on Google Drive
+                </a>
             </div>
             
-            <div class="glass-card project-card">
-                <div class="video-wrapper">
-                    <video controls preload="metadata" poster="https://placehold.co/600x400/b9a9e6/3c2a66?text=Creative+Agency">
-                        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFunflies.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <!-- Website 2 - Nova Creative Agency -->
+            <div class="glass-card website-card">
+                <div class="website-icon">🚀</div>
                 <div class="skill-badge">agency website</div>
-                <h3>Nova Creative</h3>
-                <p>Scroll-triggered animations with dynamic portfolio grid.</p>
+                <h3 class="website-title">Nova Creative</h3>
+                <p class="website-description">Scroll-triggered animations with dynamic portfolio grid.</p>
+                <a href="#" class="gdrive-btn" id="driveLink2">
+                    <i class="fab fa-google-drive"></i>
+                    View on Google Drive
+                </a>
             </div>
             
-            <div class="glass-card project-card">
-                <div class="video-wrapper">
-                    <video controls preload="metadata" poster="https://placehold.co/600x400/d7cafc/5d44a0?text=Eco+Commerce">
-                        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <!-- Website 3 - Bloom & Root E-commerce -->
+            <div class="glass-card website-card">
+                <div class="website-icon">🌿</div>
                 <div class="skill-badge">e-commerce</div>
-                <h3>Bloom & Root</h3>
-                <p>Sustainable shop with product filters and video hero section.</p>
+                <h3 class="website-title">Bloom & Root</h3>
+                <p class="website-description">Sustainable shop with product filters and video hero section.</p>
+                <a href="#" class="gdrive-btn" id="driveLink3">
+                    <i class="fab fa-google-drive"></i>
+                    View on Google Drive
+                </a>
             </div>
             
-            <div class="glass-card project-card">
-                <div class="video-wrapper">
-                    <video controls preload="metadata" poster="https://placehold.co/600x400/cdb8ff/674bb0?text=Portfolio">
-                        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/WhatCar.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <!-- Website 4 - Mirage Studio Portfolio -->
+            <div class="glass-card website-card">
+                <div class="website-icon">✨</div>
                 <div class="skill-badge">portfolio</div>
-                <h3>Mirage Studio</h3>
-                <p>Interactive case studies with micro-interactions and smooth navigation.</p>
+                <h3 class="website-title">Mirage Studio</h3>
+                <p class="website-description">Interactive case studies with micro-interactions and smooth navigation.</p>
+                <a href="#" class="gdrive-btn" id="driveLink4">
+                    <i class="fab fa-google-drive"></i>
+                    View on Google Drive
+                </a>
             </div>
+            
         </div>
         
         <div class="highlight-box">
-            Each video demonstrates a fully functional, responsive website built with modern front-end practices.
+            <i class="fas fa-folder-open"></i> Each website is a fully functional, responsive project built with modern front-end practices. Click the button on any card to view the complete demo.
         </div>
     </div>
 </div>
+
+<script>
+    // ========== GOOGLE DRIVE LINKS ==========
+    // IMPORTANT: Replace these placeholder links with your actual Google Drive shareable links
+    
+    const driveLinks = {
+        link1: "https://drive.google.com/file/d/YOUR_FILE_ID_1/view?usp=sharing",
+        link2: "https://drive.google.com/file/d/YOUR_FILE_ID_2/view?usp=sharing",
+        link3: "https://drive.google.com/file/d/YOUR_FILE_ID_3/view?usp=sharing",
+        link4: "https://drive.google.com/file/d/YOUR_FILE_ID_4/view?usp=sharing"
+    };
+    
+    // Apply links to buttons
+    document.getElementById('driveLink1').href = driveLinks.link1;
+    document.getElementById('driveLink2').href = driveLinks.link2;
+    document.getElementById('driveLink3').href = driveLinks.link3;
+    document.getElementById('driveLink4').href = driveLinks.link4;
+    
+    // Optional: Open links in new tab with confirmation (remove if not needed)
+    const allButtons = document.querySelectorAll('.gdrive-btn');
+    allButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (btn.href === "#" || btn.href.includes("YOUR_FILE_ID")) {
+                e.preventDefault();
+                alert("Please update the Google Drive links in the script section with your actual file links.");
+            }
+        });
+    });
+</script>
 </body>
 </html>
